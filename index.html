@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SWApi Table</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+		<script src="https://maxcdn.bootsrapcdn.com/bootsrap/3.3.7/js/bootsrap.min.js"></script>
+		<style>
+			body {
+				background: DarkGrey;
+			}
+			* {
+				margin: 0px;
+				padding: 0px;
+				background: ivory;
+			}
+			.container {
+				background: ivory;
+				font-family: verdana, arial, sans-serif;
+				color: black;
+				font-weight: medium;
+			}
+			#planet_table {
+				border: 3px solid DarkGrey;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="table-responsive">
+				<h1>Planet Data</h1>
+				<br />
+				<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for planets.." title="Type in a name">
+				<table class="table table-bordered table-striped" id="planet_table">
+					<tr>
+						<th>Name</th>
+						<th>Rotation Period</th>
+						<th>Orbital Period</th>
+						<th>Diameter</th>
+						<th>Climate</th>
+						<th>Gravity</th>
+						<th>Terrain</th>
+						<th>Surface Water</th>
+						<th>Population</th>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
+
+<script>
+$(document).ready(function(){
+	$.getJSON("planet.json", function(data){
+		var planet_data = '';
+		$.each(data, function(key, value){
+			planet_data += '<tr>';
+			planet_data += '<td>'+value.name+'</td>';
+			planet_data += '<td>'+value.rotation_period+'</td>';
+			planet_data += '<td>'+value.orbital_period+'</td>';
+			planet_data += '<td>'+value.diameter+'</td>';
+			planet_data += '<td>'+value.climate+'</td>';
+			planet_data += '<td>'+value.gravity+'</td>';
+			planet_data += '<td>'+value.terrain+'</td>';
+			planet_data += '<td>'+value.surface_water+'</td>';
+			planet_data += '<td>'+value.population+'</td>';
+			planet_data += '</tr>';
+		});
+		$('#planet_table').append(planet_data);
+	});
+});
+
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("planet_table");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
