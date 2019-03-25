@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>SWApi Table</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-		<script src="https://maxcdn.bootsrapcdn.com/bootsrap/3.3.7/js/bootsrap.min.js"></script>
-		<style>
-			body {
-				background: DarkGrey;
-			}
-			* {
-				margin: 0px;
-				padding: 0px;
-				background: ivory;
-			}
-			.container {
-				background: ivory;
-				font-family: verdana, arial, sans-serif;
-				color: black;
-				font-weight: medium;
-			}
-			#planet_table {
-				border: 3px solid DarkGrey;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<div class="table-responsive">
-				<h1>Planet Data</h1>
-				<br />
-				<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for planets.." title="Type in a name">
-				<table class="table table-bordered table-striped" id="planet_table">
-					<tr>
-						<th>Name</th>
-						<th>Rotation Period</th>
-						<th>Orbital Period</th>
-						<th>Diameter</th>
-						<th>Climate</th>
-						<th>Gravity</th>
-						<th>Terrain</th>
-						<th>Surface Water</th>
-						<th>Population</th>
-					</tr>
-				</table>
-			</div>
+<head>
+	<title>SWApi Table</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+	<script src="https://maxcdn.bootsrapcdn.com/bootsrap/3.3.7/js/bootsrap.min.js"></script>
+	<style>
+		body {
+			background: DarkGrey;
+		}
+		* {
+			margin: 0px;
+			padding: 0px;
+			background: ivory;
+		}
+		.container {
+			background: ivory;
+			font-family: verdana, arial, sans-serif;
+			color: black;
+			font-weight: medium;
+		}
+		#planet_table {
+			border: 3px solid DarkGrey;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="table-responsive">
+			<h1>Planet Data</h1>
+			<br />
+			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for planets.." title="Type in a name">
+			<table class="table table-bordered table-striped" id="planet_table">
+				<tr>
+					<th>Name</th>
+					<th>Rotation Period</th>
+					<th>Orbital Period</th>
+					<th>Diameter</th>
+					<th>Climate</th>
+					<th>Gravity</th>
+					<th>Terrain</th>
+					<th>Surface Water</th>
+					<th>Population</th>
+				</tr>
+			</table>
 		</div>
-	</body>
+	</div>
+</body>
 </html>
 
 <script>
